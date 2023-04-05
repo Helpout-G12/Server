@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "mkdir data && mongod --dbpath data &",
-    "start": "nodemon index.js",
+    "postinstall": "mkdir data",
+    "start": "mongod --dbpath data &> /dev/null & nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
