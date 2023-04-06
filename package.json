@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "mkdir data",
-    "start": "mongod --dbpath data &> /dev/null & nodemon index.js",
+    "prestart": "mongod --dbpath data --logpath /dev/null --config mongo.config",
+    "start": "pm2 start index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +15,7 @@
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongodb": "^5.1.0",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "pm2": "^5.3.0"
   }
 }
