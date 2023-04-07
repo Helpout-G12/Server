@@ -47,7 +47,7 @@ app.get('/moods', async (req, res) => {
 })
 
 app.post('/moods', async (req, res) => {
-  const { mood } = req.body
+  const mood = req.body
   console.log('POST /moods', mood)
   await withdb(({ moods }) => moods.insertOne(mood))
   res.json({ message: 'Mood saved!' })
@@ -60,7 +60,7 @@ app.get('/thoughts', async (req, res) => {
 })
 
 app.post('/thoughts', async (req, res) => {
-  const { thought } = req.body
+  const thought = req.body
   console.log('POST /thoughts', thought)
   await withdb(({ thoughts }) => thoughts.insertOne(thought))
   res.json({ message: 'Thought saved!' })
@@ -73,7 +73,7 @@ app.get('journal', async (req, res) => {
 })
 
 app.post('/journal', async (req, res) => {
-  const { journal } = req.body
+  const journal = req.body
   console.log('POST /journals', journal)
   await withdb(({ journal }) => journal.insertOne(journal))
   res.json({ message: 'Journal saved!' })
