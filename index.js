@@ -28,6 +28,17 @@ const withdb = async (cb) => {
   }
 }
 
+app.get("/test", (req, res) => {
+  res.json({ message: "Hello from server!" });
+});
+
+app.post("/test", (req, res) => {
+  console.log(req.body);
+  res.json({
+    message: `Hello sender! I got your POST request. This is what you sent me: ${req.body.post}`,
+  });
+});
+
 app.get('/moods', async (req, res) => {
   console.log('GET /moods', req.body)
   const moods = await withdb(({ moods }) => moods.find().toArray())
