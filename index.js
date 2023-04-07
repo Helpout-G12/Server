@@ -2,6 +2,11 @@ const express = require('express')
 const cors = require('cors')
 const { MongoClient } = require('mongodb')
 
+const {Configuration, OpenAIApi} = require('openai');
+const openai = new OpenAIApi(new Configuration({
+  apiKey: process.env.OPENAI_API_KEY
+}));
+
 const app = express()
 const port = 3000
 
@@ -66,18 +71,19 @@ app.post('/thoughts', async (req, res) => {
   res.json({ message: 'Thought saved!' })
 })
 
-app.get('journal', async (req, res) => {
+app.get('journals', async (req, res) => {
   console.log('GET /journals', req.body)
   const journal = await withdb(({ journal }) => journal.find().toArray())
   res.json(journal)
 })
 
-app.post('/journal', async (req, res) => {
+app.post('/journals', async (req, res) => {
   const journal = req.body
   console.log('POST /journals', journal)
   await withdb(({ journal }) => journal.insertOne(journal))
   res.json({ message: 'Journal saved!' })
 })
+
 
 app.listen(port, () => {
   console.log(`server listening at http://0.0.0.0:${port}`)
