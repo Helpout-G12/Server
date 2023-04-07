@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start index.js",
-    "stop": "pm2 stop index.js",
-    "restart": "pm2 restart index.js",
+    "start": "nodemon index.js",
+    "start-server": "pm2 start index.js",
+    "stop-server": "pm2 stop index.js",
+    "restart-server": "pm2 restart index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
