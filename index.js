@@ -29,6 +29,7 @@ const withdb = async (cb) => {
 }
 
 app.get("/test", (req, res) => {
+  console.log({ origin: req.headers.origin});
   res.json({ message: "Hello from server!" });
 });
 
@@ -66,14 +67,14 @@ app.post('/thoughts', async (req, res) => {
 })
 
 app.get('journal', async (req, res) => {
-  console.log('GET /journal', req.body)
+  console.log('GET /journals', req.body)
   const journal = await withdb(({ journal }) => journal.find().toArray())
   res.json(journal)
 })
 
 app.post('/journal', async (req, res) => {
   const { journal } = req.body
-  console.log('POST /journal', journal)
+  console.log('POST /journals', journal)
   await withdb(({ journal }) => journal.insertOne(journal))
   res.json({ message: 'Journal saved!' })
 })
