@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "mkdir data",
-    "prestart": "mongod --dbpath data --logpath /dev/null --config mongo.config &",
     "start": "pm2 start index.js",
     "stop": "pm2 stop index.js",
     "restart": "pm2 restart index.js",
