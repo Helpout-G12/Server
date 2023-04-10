@@ -84,6 +84,20 @@ app.post('/journals', async (req, res) => {
   res.json({ message: 'Journal saved!' })
 })
 
+app.post('/chat', async (req, res) => {
+  const prompt = req.body.prompt
+  console.log('POST /chat', prompt)
+  
+  const response = await openai.createCompletion({
+    model: process.env.OPENAI_MODEL,
+    prompt: prompt,
+    maxTokens: 100,
+    temperature: 0.9,
+    n: 1,
+    stop: [']']
+  })
+  res.json(response.data)
+})
 
 app.listen(port, () => {
   console.log(`server listening at http://0.0.0.0:${port}`)
