@@ -46,9 +46,10 @@ app.post("/test", (req, res) => {
 });
 
 app.get('/moods', async (req, res) => {
-  console.log('GET /moods', req.body)
+  console.log('GET /moods')
   const moods = await withdb(({ moods }) => moods.find().toArray())
   res.json(moods)
+  console.log(moods)
 })
 
 app.post('/moods', async (req, res) => {
@@ -59,9 +60,10 @@ app.post('/moods', async (req, res) => {
 })
 
 app.get('/thoughts', async (req, res) => {
-  console.log('GET /thoughts', req.body)
+  console.log('GET /thoughts')
   const thoughts = await withdb(({ thoughts }) => thoughts.find().toArray())
   res.json(thoughts)
+  console.log(thoughts)
 })
 
 app.post('/thoughts', async (req, res) => {
@@ -72,9 +74,10 @@ app.post('/thoughts', async (req, res) => {
 })
 
 app.get('journals', async (req, res) => {
-  console.log('GET /journals', req.body)
+  console.log('GET /journals')
   const journal = await withdb(({ journal }) => journal.find().toArray())
   res.json(journal)
+  console.log(journal)
 })
 
 app.post('/journals', async (req, res) => {
