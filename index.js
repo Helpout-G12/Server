@@ -109,11 +109,3 @@ app.post('/chat', async (req, res) => {
 app.listen(port, () => {
   console.log(`server listening at http://0.0.0.0:${port}`)
 })
-
-fetch('/chat', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({ prompt: prompt })
-})
