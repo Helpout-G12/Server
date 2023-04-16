@@ -12,7 +12,7 @@ const port = 3000
 
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'self'", 'https://*.lokeshc.me'],
+    defaultSrc: ["'self'", 'https://*.lokeshc2.me'],
   }
 }))
 app.use(express.json())
