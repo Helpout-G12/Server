@@ -2,6 +2,11 @@ const express = require('express')
 const helmet = require('helmet')
 const { MongoClient } = require('mongodb')
 
+console.log('Starting server...')
+require('dotenv').config()
+console.log('process.env.OPENAI_API_KEY', process.env.OPENAI_API_KEY)
+
+
 const { Configuration, OpenAIApi } = require('openai');
 const openai = new OpenAIApi(new Configuration({
   apiKey: process.env.OPENAI_API_KEY
