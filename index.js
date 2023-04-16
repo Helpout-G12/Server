@@ -119,7 +119,6 @@ app.post('/chat', async (req, res) => {
   const response = await openai.createCompletion({
     model: process.env.OPENAI_MODEL,
     prompt: prompt,
-    maxTokens: 100,
     temperature: 0.9,
     n: 1,
     stop: [']']
