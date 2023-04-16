@@ -1,8 +1,8 @@
 const express = require('express')
-const cors = require('cors')
+const helmet = require('helmet')
 const { MongoClient } = require('mongodb')
 
-const {Configuration, OpenAIApi} = require('openai');
+const { Configuration, OpenAIApi } = require('openai');
 const openai = new OpenAIApi(new Configuration({
   apiKey: process.env.OPENAI_API_KEY
 }));
@@ -10,11 +10,14 @@ const openai = new OpenAIApi(new Configuration({
 const app = express()
 const port = 3000
 
-app.use(cors())
-app.use(function(req, res, next) {
-  res.setHeader("Content-Security-Policy", "default-src 'self'");
-  return next();
-});
+app.use(helmet.crossOriginResourcePolicy({
+  policy: 'same-origin'
+}))
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+  }
+}))
 app.use(express.json())
 
 const uri = 'mongodb://127.0.0.1:27017'
@@ -38,7 +41,7 @@ const withdb = async (cb) => {
 }
 
 app.get("/test", (req, res) => {
-  console.log({ origin: req.headers.origin});
+  console.log({ origin: req.headers.origin });
   res.json({ message: "Hello from server!" });
 });
 
@@ -94,7 +97,7 @@ app.post('/journals', async (req, res) => {
 app.post('/chat', async (req, res) => {
   const prompt = req.body.prompt
   console.log('POST /chat', prompt)
-  
+
   const response = await openai.createCompletion({
     model: process.env.OPENAI_MODEL,
     prompt: prompt,
@@ -105,6 +108,8 @@ app.post('/chat', async (req, res) => {
   })
   res.json(response.data)
 })
+
+app.route('/favicon.ico').get((req, res) => res.status(204));
 
 app.listen(port, () => {
   console.log(`server listening at http://0.0.0.0:${port}`)
