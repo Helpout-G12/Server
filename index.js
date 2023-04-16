@@ -11,7 +11,7 @@ const app = express()
 const port = 3000
 
 app.use(helmet.crossOriginResourcePolicy({ policy: 'same-site' }))
-app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"] } }))
+app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: 'self' } }))
 app.use(express.json())
 
 const uri = 'mongodb://127.0.0.1:27017'
@@ -36,7 +36,7 @@ const withdb = async (cb) => {
 
 app.get("/test", (req, res) => {
   console.log({ origin: req.headers.origin });
-  res.json({ message: "Hello from server!" });
+  res.json({ message: "Hello from me!" });
 });
 
 app.post("/test", (req, res) => {
