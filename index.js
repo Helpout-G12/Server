@@ -10,9 +10,8 @@ const openai = new OpenAIApi(new Configuration({
 const app = express()
 const port = 3000
 
-app.use(helmet({
-  contentSecurityPolicy: "default-src 'self'; img-src 'self'; script-src 'self'; style-src 'self';"
-}))
+app.use(helmet.crossOriginResourcePolicy({ policy: 'same-site' }))
+app.use(helmet.contentSecurityPolicy({ directives: { defaultSrc: ["'self'"] } }))
 app.use(express.json())
 
 const uri = 'mongodb://127.0.0.1:27017'
