@@ -13,7 +13,7 @@ const port = 3000
 
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: ["'lokeshc2.me'"],
+    defaultSrc: '*'
   }
 }))
 app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
