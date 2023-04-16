@@ -7,21 +7,18 @@ const openai = new OpenAIApi(new Configuration({
   apiKey: process.env.OPENAI_API_KEY
 }));
 
+const dburi = 'mongodb://127.0.0.1:27017'
 const app = express()
 const port = 3000
 
-app.use(helmet.contentSecurityPolicy({
-  directives: {
-    defaultSrc: ["'self'", 'https://lokeshc2.me/*'],
-  }
-}))
+app.use(helmet.contentSecurityPolicy(helmet.contentSecurityPolicy.getDefaultDirectives()))
+app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
 app.use(express.json())
 
-const uri = 'mongodb://127.0.0.1:27017'
 
 const withdb = async (cb) => {
   try {
-    const client = await MongoClient.connect(uri, {
+    const client = await MongoClient.connect(dburi, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     })
