@@ -11,7 +11,11 @@ const dburi = 'mongodb://127.0.0.1:27017'
 const app = express()
 const port = 3000
 
-app.use(helmet.contentSecurityPolicy(helmet.contentSecurityPolicy.getDefaultDirectives()))
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'lokeshc2.me'"],
+  }
+}))
 app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
 app.use(express.json())
 
