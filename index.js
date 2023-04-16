@@ -13,10 +13,64 @@ const port = 3000
 
 app.use(helmet.contentSecurityPolicy({
   directives: {
-    defaultSrc: '*'
+    defaultSrc: ["'self'"],
+
   }
 }))
-app.use(helmet.referrerPolicy({ policy: 'same-origin' }))
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: false,
+    "block-all-mixed-content": true,
+    "upgrade-insecure-requests": true,
+    directives: {
+      "default-src": [
+        "'self'"
+      ],
+      "base-uri": "'self'",
+      "font-src": [
+        "'self'",
+        "https:",
+        "data:"
+      ],
+      "frame-ancestors": [
+        "'self'"
+      ],
+      "img-src": [
+        "'self'",
+        "data:"
+      ],
+      "object-src": [
+        "'none'"
+      ],
+      "script-src": [
+        "'self'",
+        "https://cdnjs.cloudflare.com"
+      ],
+      "script-src-attr": "'none'",
+      "style-src": [
+        "'self'",
+        "https://cdnjs.cloudflare.com"
+      ],
+    },
+  }),
+  helmet.dnsPrefetchControl({
+    allow: true
+  }),
+  helmet.frameguard({
+    action: "deny"
+  }),
+  helmet.hidePoweredBy(),
+  helmet.hsts({
+    maxAge: 123456,
+    includeSubDomains: false
+  }),
+  helmet.ieNoOpen(),
+  helmet.noSniff(),
+  helmet.referrerPolicy({
+    policy: ["origin", "unsafe-url"]
+  }),
+  helmet.xssFilter()
+)
 app.use(express.json())
 
 
@@ -40,7 +94,7 @@ const withdb = async (cb) => {
 
 app.get("/test", (req, res) => {
   console.log({ origin: req.headers.origin });
-  res.json({ message: "Hello from me!" });
+  res.json({ message: "Hello from the world!" });
 });
 
 app.post("/test", (req, res) => {
