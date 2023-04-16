@@ -92,6 +92,10 @@ const withdb = async (cb) => {
   }
 }
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 app.get("/test", (req, res) => {
   console.log({ origin: req.headers.origin });
   res.json({ message: "Hello from the world!" });
