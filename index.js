@@ -11,6 +11,10 @@ const app = express()
 const port = 3000
 
 app.use(cors())
+app.use(function(req, res, next) {
+  res.setHeader("Content-Security-Policy", "default-src 'self'");
+  return next();
+});
 app.use(express.json())
 
 const uri = 'mongodb://127.0.0.1:27017'
@@ -104,4 +108,12 @@ app.post('/chat', async (req, res) => {
 
 app.listen(port, () => {
   console.log(`server listening at http://0.0.0.0:${port}`)
+})
+
+fetch('/chat', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({ prompt: prompt })
 })
