@@ -20,56 +20,13 @@ app.use(helmet.contentSecurityPolicy({
 app.use(
   helmet.contentSecurityPolicy({
     useDefaults: false,
-    "block-all-mixed-content": true,
     "upgrade-insecure-requests": true,
     directives: {
       "default-src": [
         "'self'"
-      ],
-      "base-uri": "'self'",
-      "font-src": [
-        "'self'",
-        "https:",
-        "data:"
-      ],
-      "frame-ancestors": [
-        "'self'"
-      ],
-      "img-src": [
-        "'self'",
-        "data:"
-      ],
-      "object-src": [
-        "'none'"
-      ],
-      "script-src": [
-        "'self'",
-        "https://cdnjs.cloudflare.com"
-      ],
-      "script-src-attr": "'none'",
-      "style-src": [
-        "'self'",
-        "https://cdnjs.cloudflare.com"
-      ],
-    },
-  }),
-  helmet.dnsPrefetchControl({
-    allow: true
-  }),
-  helmet.frameguard({
-    action: "deny"
-  }),
-  helmet.hidePoweredBy(),
-  helmet.hsts({
-    maxAge: 123456,
-    includeSubDomains: false
-  }),
-  helmet.ieNoOpen(),
-  helmet.noSniff(),
-  helmet.referrerPolicy({
-    policy: ["origin", "unsafe-url"]
-  }),
-  helmet.xssFilter()
+      ]
+    }
+  })
 )
 app.use(express.json())
 
