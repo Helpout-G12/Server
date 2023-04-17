@@ -123,8 +123,9 @@ app.post('/chat', async (req, res) => {
     model: 'gpt-3.5-turbo',
     messages: messages.map(m=> {return {role:m.role, content:m.content}})
   })
-  console.log(response.data.choices[0].message)
-  res.json({...response.data.choices[0].message, time: new Date()})
+  let message = response.data.choices[0].message
+  console.log(message)
+  res.json({role: message.role, content: message.content, time: new Date()})
 })
 
 app.route('/favicon.ico').get((req, res) => res.status(204));
