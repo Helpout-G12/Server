@@ -123,6 +123,7 @@ app.post('/chat', async (req, res) => {
     model: 'gpt-3.5-turbo',
     messages: messages.map(m=> {return {role:m.role, content:m.content}})
   })
+  console.log(response.data)
   res.json({...response.data.choices[0].message, time: new Date()})
 })
 
