@@ -1,5 +1,6 @@
 const express = require('express')
 const helmet = require('helmet')
+const cors = require('cors')
 const { MongoClient } = require('mongodb')
 
 console.log('Starting server...')
@@ -16,10 +17,11 @@ const dburi = 'mongodb://127.0.0.1:27017'
 const app = express()
 const port = 3000
 
+app.use(cors())
+
 app.use(helmet.contentSecurityPolicy({
   directives: {
     defaultSrc: ["'self'"],
-
   }
 }))
 app.use(
