@@ -115,17 +115,13 @@ app.post('/journals', async (req, res) => {
 })
 
 app.post('/chat', async (req, res) => {
-  const prompt = req.body.prompt
+  const messages = req.body
   console.log('POST /chat', prompt)
 
   const response = await openai.createChatCompletion({
     // model: process.env.OPENAI_MODEL,
     model: 'gpt-3.5-turbo',
-    prompt: prompt + ' ->',
-    temperature: 0.9,
-    max_tokens: 100,
-    n: 1,
-    stop: [']']
+    messages: messages.map(m=> {return {role:m.role, content:m.content}})
   })
   res.json({text:response.data.choices[0].text.split('[')[0]})
 })
