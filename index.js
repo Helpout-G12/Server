@@ -119,8 +119,8 @@ app.post('/chat', async (req, res) => {
   console.log('POST /chat', messages)
 
   const response = await openai.createChatCompletion({
-    // model: process.env.OPENAI_MODEL,
-    model: 'gpt-3.5-turbo',
+    model: process.env.OPENAI_MODEL,
+    // model: 'gpt-3.5-turbo',
     messages: messages.map(m=> {return {role:m.role, content:m.content}})
   })
   let message = response.data.choices[0].message
