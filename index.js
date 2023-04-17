@@ -116,7 +116,7 @@ app.post('/journals', async (req, res) => {
 
 app.post('/chat', async (req, res) => {
   const messages = req.body
-  console.log('POST /chat', prompt)
+  console.log('POST /chat', messages)
 
   const response = await openai.createChatCompletion({
     // model: process.env.OPENAI_MODEL,
