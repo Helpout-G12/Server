@@ -124,7 +124,7 @@ app.post('/chat', async (req, res) => {
     n: 1,
     stop: [']']
   })
-  res.json(response.data.choices[0].text.split('[')[0])
+  res.json({text:response.data.choices[0].text.split('[')[0]})
 })
 
 app.route('/favicon.ico').get((req, res) => res.status(204));
