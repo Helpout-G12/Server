@@ -13,7 +13,7 @@ def make(question):
     return instruc + '\n' + '{"user": ' + question + ', "bot": '
 
 
-with open('counselchat-data-clean.csv', 'w') as f:
+with open('counselchat-data-clean_ft.txt', 'w') as f:
     for index, row in df.iterrows():
         question = row['questionText']
         answer = row['answerText']
