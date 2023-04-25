@@ -114,16 +114,32 @@ app.post('/journals', async (req, res) => {
   res.json({ message: 'Journal saved!' })
 })
 
+// app.post('/chat', async (req, res) => {
+//   const messages = req.body
+//   console.log('POST /chat', messages)
+
+//   const response = await openai.createChatCompletion({
+//     model: process.env.OPENAI_MODEL,
+//     // model: 'gpt-3.5-turbo',
+//     messages: messages.map(m=> {return {role:m.role, content:m.content}})
+//   })
+//   let message = response.data.choices[0].message
+//   console.log(message)
+//   res.json({role: message.role, content: message.content, time: new Date()})
+// })
+
 app.post('/chat', async (req, res) => {
   const messages = req.body
   console.log('POST /chat', messages)
 
-  const response = await openai.createChatCompletion({
-    model: process.env.OPENAI_MODEL,
-    // model: 'gpt-3.5-turbo',
-    messages: messages.map(m=> {return {role:m.role, content:m.content}})
+  const response = await fetch('localhost:5000/chat', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(messages)
   })
-  let message = response.data.choices[0].message
+  const message = await response.json()
   console.log(message)
   res.json({role: message.role, content: message.content, time: new Date()})
 })
