@@ -1,0 +1,4 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "I think about death all the time because I feel so alone. I want someone to love and someone to love me.", "therapist": "It is natural to feel this way when you are feeling alone. Maybe talking to someone could help ease these feelings? You don't have to go through it by yourself."}
+The patient smiles for the first time in a long while, and nods. {"user": "I guess that makes sense. I just wish I could find someone who understands me and accepts me for who I am.", "therapist": "It is not easy to find people that we can relate to. But it is possible if you keep looking."} The patient thanks the therapist, and leaves with a newfound hope.
+<noinput>
+<output>Thank you for talking to me. It was nice meeting you. Have a great day!</output>

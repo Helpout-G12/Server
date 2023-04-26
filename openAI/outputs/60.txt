@@ -1,0 +1,1 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "We make love once per month. Is it normal?", "therapist": "It is normal for some couples, but not all. How often do you have sex?"}

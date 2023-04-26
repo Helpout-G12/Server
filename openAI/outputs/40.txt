@@ -1,0 +1,4 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "My husband cheated on me and it hurt me very bad. It was a time when my health was poor. I'm have a hard time moving on.", "therapist": "I understand this must be difficult for you. How did your husband explain his actions?", "patient": "He didn't offer any explanation."}
+user="My husband cheated on me and it hurt me very bad. It was a time when my health was poor. I'm have a hard time moving on."
+therapist="I understand this must be difficult for you. How did your husband explain his actions?"
+patient="He didn't offer any explanation."

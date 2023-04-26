@@ -1,0 +1,2 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "Sometimes 3 times a night.", "therapist": "I'm sorry to hear that. What are some of the things that make it difficult for you to sleep?"}
+{"user": "It's hard to relax my mind and body when I can't get the rest that I need.", "therapist": "What kind of things do you do to help yourself relax?"}

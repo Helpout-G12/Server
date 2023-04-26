@@ -1,0 +1,2 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "My mom and I have been fighting a lot now, and I just want a good relationship with her.", "therapist": "That's understandable. Can you tell me more about the fights? What are they usually about?"}
+{"user": "I don't want to feel so alone anymore", "therapist": "What do you think would help make your relationship with your mom better?"}

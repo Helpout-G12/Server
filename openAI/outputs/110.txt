@@ -1,0 +1,2 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "In particular during family gatherings (such as funerals), where there are different customs.", "therapist": "I understand that it can be difficult to navigate different cultures when you are in the minority, especially during sensitive times like funerals."}
+<nooutput>

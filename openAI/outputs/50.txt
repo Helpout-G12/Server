@@ -1,0 +1,1 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "I feel like my time is going too fast", "therapist": "What do you mean?"}

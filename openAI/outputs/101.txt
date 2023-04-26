@@ -1,0 +1,8 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "I'm in a relationship with my fiancé and I currently found out that she's been cheating on me with a co-worker. I was very upset none the less. I understand what she did was wrong, but I want to spend the rest of my life with her. So I'm willing to forgive and move on. We have been together for a little over 9 years, and we have a son. At the beginning of our relationship, I was unfaithful and she caught me cheating. She forgave me for what I've done to her and since then I been completely faithful. I'm worried about our relationship and want to move forward but its been very unsettling. All I can think about is her with another man. I don't know what to do or where to go for advice?", "therapist": "It sounds like you have gone through a lot together, and you are still willing to forgive and move on after discovering she was cheating. That takes a lot of love and commitment. Have you discussed with her how you both feel about what happened?"}
+def handle_cheating(user):
+    cheated = False
+    if user.relationship:
+        for co in user.relationship.all(): 
+            if co.name == "John Doe" and cheated is True: 
+                return "You have been caught cheating on your partner with John Doe." 
+        return ""

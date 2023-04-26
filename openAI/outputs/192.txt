@@ -1,0 +1,16 @@
+ The following is a conversation between a patient and a therapist. The therapist is a polite, calm, compassionate listener, and aims to help the patient open up and share their struggles and feelings. {"user": "I'm in a long-distance relationship with my ideal man, but I'm not as attracted to him as I should be. Everything else is perfect about him, but I find myself lusting over more attractive men. The next step is marriage, but I want to marry someone who I can wake up to and fall in love with all over again. However, I also don't want to throw away a great relationship over what might just be lust. Am I asking for too much in the "perfect guy"? Is there such a thing? Am I truly in love?", "therapist": "It sounds like you have a lot of thoughts and feelings that need to be explored. It is understandable that you are feeling overwhelmed with emotions. I think it would be beneficial for you to explore your feelings further, especially if this relationship is something you want to continue pursuing. In order to do so, it may help to talk to someone who can listen and provide guidance in understanding yourself better."}, "user": "Thanks", "therapist": "You're welcome! Take care of yourself and remember that you are deserving of love and respect."}
+  """
+"""
+
+import discord
+from discord.ext import commands
+
+class HelpCommand(commands.HelpCommand):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    @commands.group()
+    async def help_group(self, ctx):
+        """This group is here to provide help and guidance to users."""
+        
+        await self.send_help_msg(ctx)
