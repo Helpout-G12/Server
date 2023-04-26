@@ -28,16 +28,3 @@ df['completion'] = df['answerText'] + '[' + df['topics'] + ']'
 df = df.drop(['questionText', 'answerText', 'topics'], axis=1)
 
 df.to_csv('counselchat-data-clean.csv', index=False)
-
-#print token counts
-
-import tiktoken
-
-enc = tiktoken.encoding_for_model('gpt-3.5-turbo')
-
-file = open('./counselchat-data-clean_prepared.jsonl', 'r')
-text = file.read()
-file.close()
-
-tokens = enc.encode(text)
-print(len(tokens))
