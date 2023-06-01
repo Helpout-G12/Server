@@ -3,6 +3,8 @@ const cors = require('cors')
 const { spawn } = require('child_process')
 
 const app = express()
+app.use(cors())
+app.use(express.json())
 const port = 5000
 
 //cd ~/ai/llama.cpp
